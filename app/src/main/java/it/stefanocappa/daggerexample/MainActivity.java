@@ -10,11 +10,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.vehicle.Vehicle;
 
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(MainActivity.class.getSimpleName(), "RPM: " + v.getRpm());
         v.acceleratePetrolEngine(50);
         Log.d(MainActivity.class.getSimpleName(), "RPM after acceleration: " + v.getRpm());
-        v.startPetrolMotor(45,34);
-
-        v.startGplMotor(45,34);
+//        v.startPetrolMotor(45,34);
+//
+//        v.startGplMotor(45,34);
 
         v.startElectricMotor(45,34);
 

@@ -4,6 +4,7 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Gpl;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.Named;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
@@ -14,7 +15,7 @@ public class GplMotor extends Motor {
     private int energy = 0;
 
     @Inject
-    public GplMotor(@Named("gpl_tank") Tank tank) {
+    public GplMotor(@Gpl Tank tank) {
         this.tank = tank;
         this.energy = this.tank.getLevel();
     }

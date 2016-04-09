@@ -4,6 +4,7 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Electric;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.Named;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
@@ -14,7 +15,7 @@ public class ElectricMotor extends Motor {
     private int energy = 0;
 
     @Inject
-    public ElectricMotor(@Named("battery_pack") Tank tank) {
+    public ElectricMotor(@Electric Tank tank) {
         this.tank = tank;
         this.energy = this.tank.getLevel();
     }

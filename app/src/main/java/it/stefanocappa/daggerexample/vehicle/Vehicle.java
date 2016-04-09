@@ -1,9 +1,10 @@
 package it.stefanocappa.daggerexample.vehicle;
 
+import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
-import it.stefanocappa.daggerexample.vehicle.sprungmass.EngineModule;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.engine.EngineModule;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.DaggerUnsprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMassComponent;
@@ -27,9 +28,11 @@ public class Vehicle {
         UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
                 //.unsprungMassModule(new UnsprungMassModule())
                 .build();
+
+        this.unsprungMass = unsprungMassComponent.unsprungMass();
     }
 
-
+    @DebugLog
     public void setLevel(int level) {
         sprungMass.setLevel(level);
     }

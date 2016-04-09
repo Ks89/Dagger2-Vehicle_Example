@@ -22,17 +22,17 @@ public class SprungMass {
     private final Tank gplTank;
 
     @Inject
-    @Named("petrol_engine")
+    @Petrol
     Lazy<Engine> petrolEngine;
     @Inject
-    @Named("electric_engine")
+    @Electric
     Lazy<Engine> electricEngine;
     @Inject
-    @Named("gpl_engine")
+    @Gpl
     Lazy<Engine> gplEngine;
 
     @Inject
-    SprungMass(@Named("battery_pack") Tank batteryPack, @Named("petrol_tank") Tank petrolTank, @Named("gpl_tank") Tank gplTank) {
+    SprungMass(@Electric Tank batteryPack, @Petrol Tank petrolTank, @Gpl Tank gplTank) {
         this.batteryPack = batteryPack;
         this.petrolTank = petrolTank;
         this.gplTank = gplTank;
