@@ -5,12 +5,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.vehicle.Vehicle;
 
 
@@ -33,17 +31,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Vehicle v = new Vehicle();
-        v.setLevel(12);
-        Log.d(MainActivity.class.getSimpleName(), "RPM: " + v.getRpm());
-        v.acceleratePetrolEngine(50);
-        Log.d(MainActivity.class.getSimpleName(), "RPM after acceleration: " + v.getRpm());
-//        v.startPetrolMotor(45,34);
+        Vehicle p = new Vehicle();
+        p.brew(25, 20);
+
+//        SprungMass v = new SprungMass();
+//        v.startGplMotor(10, 50);
+
+//        v.accelerateGplEngine(15);
+//        v.setGplLevel(10);
 //
-//        v.startGplMotor(45,34);
+//        Log.d(MainActivity.class.getSimpleName(), "RPM: " + v.getGplRpm());
+//
+//        v.accelerateGplEngine(50);
+//
+//        Log.d(MainActivity.class.getSimpleName(), "RPM after acceleration: " + v.getGplRpm());
 
-        v.startElectricMotor(45,34);
-
+        //v.startElectricMotor(45,34);
 
 
 //
@@ -57,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
 ////        Tank tank = vehicleComponent.tank();
 ////        Motor motor = vehicleComponent.motor();
 //
-//        VehicleMaker maker = vehicleComponent.maker();
-//        maker.startElectricMotor(10, 5);
-//        maker.startPetrolMotor(30, 20);
-//        maker.startGplMotor(30, 15);
-//        maker.startHybridMotor(20, 10, 18);
-//        maker.startHybridElectricMotor(15, 15, 18);
+//        VehicleMaker sprungMass = vehicleComponent.sprungMass();
+//        sprungMass.startElectricMotor(10, 5);
+//        sprungMass.startPetrolMotor(30, 20);
+//        sprungMass.startGplMotor(30, 15);
+//        sprungMass.startHybridMotor(20, 10, 18);
+//        sprungMass.startHybridElectricMotor(15, 15, 18);
 
         // WheelModule wheelModule = new WheelModule();
 //        UnsprungMassModule unsprungMassModule = new UnsprungMassModule();
@@ -76,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
 //        UnsprungMassMaker unsprungMassMaker = unsprungMassSubComponent.getUnsprungMassMaker();
 //        unsprungMassMaker.startWheels();
 //        unsprungMassMaker.setType("winter");
-//        unsprungMassMaker.setSpeed(maker.getRpm());
+//        unsprungMassMaker.setSpeed(sprungMass.getRpm());
 //        unsprungMassMaker.setSuspensionType("semi-active");
 //        unsprungMassMaker.setTiresSize(17);
 //        unsprungMassMaker.setTiresPressure(32);
