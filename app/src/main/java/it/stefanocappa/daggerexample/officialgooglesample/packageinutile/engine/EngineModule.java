@@ -7,7 +7,7 @@ import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.Petrol;
 
 @Module
 public class EngineModule {
-  @Provides
+  @Provides @Gpl
   Engine provideGplEngine(GplEngine engine) {
     return engine;
   }

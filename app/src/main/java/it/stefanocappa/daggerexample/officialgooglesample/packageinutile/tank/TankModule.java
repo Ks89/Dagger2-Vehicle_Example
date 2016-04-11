@@ -10,7 +10,7 @@ import javax.inject.Singleton;
 
 @Module(includes = EngineModule.class)
 public class TankModule {
-  @Provides @Singleton
+  @Provides @Singleton @Gpl
   Tank provideGplTank() {
     return new GplTank();
   }

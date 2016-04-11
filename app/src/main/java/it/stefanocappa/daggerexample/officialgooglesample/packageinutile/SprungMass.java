@@ -10,9 +10,9 @@ import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.engine.
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.tank.Tank;
 
 public class SprungMass {
-    @Inject
+    @Inject @Gpl
     Lazy<Tank> gplTank; // Create a possibly costly gplTank only when we use it.
-    @Inject
+    @Inject @Gpl
     Engine gplEngine;
 //    @Inject @Petrol
 //    Lazy<Tank> petrolTank; // Create a possibly costly gplTank only when we use it.

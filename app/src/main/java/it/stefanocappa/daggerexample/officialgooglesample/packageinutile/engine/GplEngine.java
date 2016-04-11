@@ -15,7 +15,7 @@ public class GplEngine implements Engine {
     private int rpm = 0;
 
     @Inject
-    public GplEngine(Tank tank) {
+    public GplEngine(@Gpl Tank tank) {
         this.tank = tank;
         Log.d("tag", "useless log");
     }
