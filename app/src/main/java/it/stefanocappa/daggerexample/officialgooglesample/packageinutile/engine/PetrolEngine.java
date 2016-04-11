@@ -8,21 +8,14 @@ import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.Petrol;
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.tank.Tank;
 
-public class PetrolEngine implements Engine {
-    private final Tank tank;
+public class PetrolEngine extends Motor {
     private int level;
     private int energy = 0;
-    private int rpm = 0;
 
     @Inject
     public PetrolEngine(@Petrol Tank tank) {
         this.tank = tank;
-        Log.d("tag", "useless log");
-    }
-
-    @Override
-    public int getRpm() {
-        return this.rpm;
+        Log.d("PetrolEngine", "PetrolEngine log");
     }
 
     @Override

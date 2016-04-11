@@ -8,7 +8,7 @@ import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.Gpl;
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.tank.Tank;
 
-public class GplEngine implements Engine {
+public class GplEngine extends Motor {
     private final Tank tank;
     private int level;
     private int energy = 0;
@@ -17,7 +17,7 @@ public class GplEngine implements Engine {
     @Inject
     public GplEngine(@Gpl Tank tank) {
         this.tank = tank;
-        Log.d("tag", "useless log");
+        Log.d("GplEngine", "GplEngine log");
     }
 
     @Override
