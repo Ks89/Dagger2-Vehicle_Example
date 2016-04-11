@@ -12,8 +12,8 @@ public class EngineModule {
     return engine;
   }
 
-//  @Provides
-//  Engine providePetrolEngine(@Petrol PetrolEngine engine) {
-//    return engine;
-//  }
+  @Provides @Petrol
+  Engine providePetrolEngine(PetrolEngine engine) {
+    return engine;
+  }
 }

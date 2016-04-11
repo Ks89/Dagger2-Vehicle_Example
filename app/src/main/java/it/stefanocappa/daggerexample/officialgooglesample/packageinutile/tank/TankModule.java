@@ -14,9 +14,9 @@ public class TankModule {
   Tank provideGplTank() {
     return new GplTank();
   }
-//
-//  @Provides @Singleton @Petrol
-//  Tank providePetrolTank() {
-//    return new PetrolTank();
-//  }
+
+  @Provides @Singleton @Petrol
+  Tank providePetrolTank() {
+    return new PetrolTank();
+  }
 }
