@@ -19,7 +19,8 @@ public class Vehicle {
     @DebugLog
     public void brew(int level, int exlevel) {
         sprungMass.startGplEngine(level, exlevel);
-        sprungMass.startPetrolEngine(level,exlevel);
+        sprungMass.startPetrolEngine(level, exlevel);
+        sprungMass.startElectricEngine(level, exlevel);
     }
 
 

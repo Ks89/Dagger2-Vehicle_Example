@@ -18,6 +18,10 @@ public class SprungMass {
     Lazy<Tank> petrolTank; // Create a possibly costly gplTank only when we use it.
     @Inject @Petrol
     Engine petrolEngine;
+    @Inject @Electric
+    Lazy<Tank> electricTank; // Create a possibly costly gplTank only when we use it.
+    @Inject @Electric
+    Engine electricEngine;
 
     @Inject
     public SprungMass() {
@@ -28,7 +32,7 @@ public class SprungMass {
         gplTank.get().setLevel(level);
         gplEngine.accelerate(exlevel);
         gplTank.get().setLevel(1);
-        Log.d("tag", " level is only 1, i can't gplEngine ");
+        Log.d("tag", " level is only 1, i can't start the gplEngine ");
         gplEngine.accelerate(10);
         gplTank.get().setLevel(1);
         gplEngine.accelerate(0);
@@ -41,11 +45,24 @@ public class SprungMass {
         petrolTank.get().setLevel(level);
         petrolEngine.accelerate(exlevel);
         petrolTank.get().setLevel(1);
-        Log.d("tag", " level is only 1, i can't gplEngine ");
+        Log.d("tag", " level is only 1, i can't start the petrolEngine ");
         petrolEngine.accelerate(10);
         petrolTank.get().setLevel(1);
         petrolEngine.accelerate(0);
         Log.d("tag", " [_]P coffee! [_]P ");
         petrolTank.get().setLevel(0);
+    }
+
+    @DebugLog
+    public void startElectricEngine(int level, int exlevel) {
+        electricTank.get().setLevel(level);
+        electricEngine.accelerate(exlevel);
+        electricTank.get().setLevel(1);
+        Log.d("tag", " level is only 1, i can't start the electricEngine ");
+        electricEngine.accelerate(10);
+        electricTank.get().setLevel(1);
+        electricEngine.accelerate(0);
+        Log.d("tag", " [_]P coffee! [_]P ");
+        electricTank.get().setLevel(0);
     }
 }

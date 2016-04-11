@@ -9,10 +9,8 @@ import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.Gpl;
 import it.stefanocappa.daggerexample.officialgooglesample.packageinutile.tank.Tank;
 
 public class GplEngine extends Motor {
-    private final Tank tank;
     private int level;
     private int energy = 0;
-    private int rpm = 0;
 
     @Inject
     public GplEngine(@Gpl Tank tank) {
