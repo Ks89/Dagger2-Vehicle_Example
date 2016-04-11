@@ -1,4 +1,4 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 //
 //import java.util.List;
 //

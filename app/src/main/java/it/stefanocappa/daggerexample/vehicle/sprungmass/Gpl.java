@@ -1,4 +1,4 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile;//package it.stefanocappa.daggerexample.vehicle.sprungmass;
+package it.stefanocappa.daggerexample.vehicle.sprungmass;//package it.stefanocappa.daggerexample.vehicle.sprungmass;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -12,5 +12,5 @@ import javax.inject.Qualifier;
 @Qualifier
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Petrol {
+public @interface Gpl {
 }

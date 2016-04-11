@@ -1,4 +1,4 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 public interface Engine {
   int getRpm();

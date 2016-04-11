@@ -1,12 +1,12 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Petrol;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.tank.Tank;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Petrol;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class PetrolEngine extends Motor {
     private int level;

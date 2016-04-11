@@ -1,4 +1,4 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile;
+package it.stefanocappa.daggerexample.vehicle.sprungmass;
 
 import android.util.Log;
 
@@ -6,20 +6,20 @@ import javax.inject.Inject;
 
 import dagger.Lazy;
 import hugo.weaving.DebugLog;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.engine.Engine;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.tank.Tank;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.engine.Engine;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class SprungMass {
     @Inject @Gpl
-    Lazy<Tank> gplTank; // Create a possibly costly gplTank only when we use it.
+    Lazy<Tank> gplTank;
     @Inject @Gpl
     Engine gplEngine;
     @Inject @Petrol
-    Lazy<Tank> petrolTank; // Create a possibly costly gplTank only when we use it.
+    Lazy<Tank> petrolTank;
     @Inject @Petrol
     Engine petrolEngine;
     @Inject @Electric
-    Lazy<Tank> electricTank; // Create a possibly costly gplTank only when we use it.
+    Lazy<Tank> electricTank;
     @Inject @Electric
     Engine electricEngine;
 
@@ -28,9 +28,9 @@ public class SprungMass {
     }
 
     @DebugLog
-    public void startGplEngine(int level, int exlevel) {
+    public void startGplEngine(int level, int rpm) {
         gplTank.get().setLevel(level);
-        gplEngine.accelerate(exlevel);
+        gplEngine.accelerate(rpm);
         gplTank.get().setLevel(1);
         Log.d("tag", " level is only 1, i can't start the gplEngine ");
         gplEngine.accelerate(10);
@@ -41,9 +41,9 @@ public class SprungMass {
     }
 
     @DebugLog
-    public void startPetrolEngine(int level, int exlevel) {
+    public void startPetrolEngine(int level, int rpm) {
         petrolTank.get().setLevel(level);
-        petrolEngine.accelerate(exlevel);
+        petrolEngine.accelerate(rpm);
         petrolTank.get().setLevel(1);
         Log.d("tag", " level is only 1, i can't start the petrolEngine ");
         petrolEngine.accelerate(10);
@@ -54,9 +54,9 @@ public class SprungMass {
     }
 
     @DebugLog
-    public void startElectricEngine(int level, int exlevel) {
+    public void startElectricEngine(int level, int rpm) {
         electricTank.get().setLevel(level);
-        electricEngine.accelerate(exlevel);
+        electricEngine.accelerate(rpm);
         electricTank.get().setLevel(1);
         Log.d("tag", " level is only 1, i can't start the electricEngine ");
         electricEngine.accelerate(10);

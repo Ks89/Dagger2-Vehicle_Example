@@ -1,13 +1,13 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.tank;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.tank;
 
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Electric;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Gpl;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Petrol;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.engine.EngineModule;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Electric;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Gpl;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Petrol;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.engine.EngineModule;
 
 @Module(includes = EngineModule.class)
 public class TankModule {

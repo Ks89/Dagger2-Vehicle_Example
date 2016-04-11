@@ -1,12 +1,12 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Electric;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.tank.Tank;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Electric;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 
 /**

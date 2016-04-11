@@ -1,9 +1,9 @@
 package it.stefanocappa.daggerexample.vehicle;
 
 import hugo.weaving.DebugLog;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.DaggerSprungMassComponent;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.SprungMass;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.SprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
 
 public class Vehicle {
@@ -16,9 +16,9 @@ public class Vehicle {
     }
 
     @DebugLog
-    public void startEngines(int level, int exlevel) {
-        sprungMass.startGplEngine(level, exlevel);
-        sprungMass.startPetrolEngine(level, exlevel);
-        sprungMass.startElectricEngine(level, exlevel);
+    public void startEngines(int level, int rpm) {
+        sprungMass.startGplEngine(level, rpm);
+        sprungMass.startPetrolEngine(level, rpm);
+        sprungMass.startElectricEngine(level, rpm);
     }
 }

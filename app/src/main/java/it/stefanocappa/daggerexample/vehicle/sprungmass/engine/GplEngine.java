@@ -1,12 +1,12 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 import android.util.Log;
 
 import javax.inject.Inject;
 
 import hugo.weaving.DebugLog;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Gpl;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.tank.Tank;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Gpl;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class GplEngine extends Motor {
     private int level;

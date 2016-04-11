@@ -1,7 +1,7 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 
-import it.stefanocappa.daggerexample.vehicle.packageinutile.tank.Tank;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 /**
  * Created by Ks89 on 21/03/16.

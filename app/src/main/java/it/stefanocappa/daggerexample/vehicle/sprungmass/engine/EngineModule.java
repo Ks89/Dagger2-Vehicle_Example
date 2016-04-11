@@ -1,10 +1,10 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
 
 import dagger.Module;
 import dagger.Provides;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Electric;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Gpl;
-import it.stefanocappa.daggerexample.vehicle.packageinutile.Petrol;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Electric;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Gpl;
+import it.stefanocappa.daggerexample.vehicle.sprungmass.Petrol;
 
 @Module
 public class EngineModule {

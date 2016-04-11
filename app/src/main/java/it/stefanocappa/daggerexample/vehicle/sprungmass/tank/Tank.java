@@ -1,4 +1,4 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.tank;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.tank;
 
 public interface Tank {
   void setLevel(int level);

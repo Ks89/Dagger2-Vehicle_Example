@@ -1,10 +1,10 @@
-package it.stefanocappa.daggerexample.vehicle.packageinutile.tank;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.tank;
 
 import android.util.Log;
 
 import hugo.weaving.DebugLog;
 
-public class PetrolTank implements Tank {
+public class ElectricTank implements Tank {
 
     int level;
     int capacity = 500;
@@ -13,7 +13,7 @@ public class PetrolTank implements Tank {
     @DebugLog
     public void setLevel(int level) {
         if (level < capacity) {
-            Log.d("DaggerExample", " || || || filling petrol tank || || ||");
+            Log.d("DaggerExample", " || || || filling electric tank || || ||");
             this.level = level;
         }
     }
