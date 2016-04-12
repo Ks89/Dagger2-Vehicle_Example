@@ -5,27 +5,29 @@ import android.util.Log;
 import hugo.weaving.DebugLog;
 
 public class GplTank implements Tank {
-
-    int level;
-    int capacity = 500;
+    private static final String TAG = GplTank.class.getSimpleName();
+    int currentLevel;
+    int maximumCapacity = 50;
 
     @Override
     @DebugLog
-    public void setLevel(int level) {
-        if (level < capacity) {
-            Log.d("DaggerExample", " || || || filling gpl tank || || ||");
-            this.level = level;
+    public void refill(int addedFuel) {
+        Log.d(TAG, "Refill requested with: addedFuel: " + addedFuel + ", this.currentLevel + addedFuel: "
+                + (this.currentLevel + addedFuel) + ", maximumCapacity: " + maximumCapacity);
+        if (this.currentLevel + addedFuel < maximumCapacity) {
+            Log.d(TAG, " || || || filling gpl tank || || ||");
+            this.currentLevel = this.currentLevel + addedFuel;
+        } else {
+            Log.e(TAG, "Gpl tank already full!!!");
         }
     }
 
-    @Override
-    public int getLevel() {
-        return this.level;
+    public int getCurrentLevel() {
+        return this.currentLevel;
     }
 
     @Override
     public boolean isFull() {
-        return level == capacity;
+        return currentLevel == maximumCapacity;
     }
-
 }

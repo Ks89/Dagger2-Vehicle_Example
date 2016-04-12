@@ -10,17 +10,25 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.engine.Engine;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class SprungMass {
-    @Inject @Gpl
+    private static final String TAG = SprungMass.class.getSimpleName();
+
+    @Inject
+    @Gpl
     Lazy<Tank> gplTank;
-    @Inject @Gpl
+    @Inject
+    @Gpl
     Engine gplEngine;
-    @Inject @Petrol
+    @Inject
+    @Petrol
     Lazy<Tank> petrolTank;
-    @Inject @Petrol
+    @Inject
+    @Petrol
     Engine petrolEngine;
-    @Inject @Electric
+    @Inject
+    @Electric
     Lazy<Tank> electricTank;
-    @Inject @Electric
+    @Inject
+    @Electric
     Engine electricEngine;
 
     @Inject
@@ -28,41 +36,47 @@ public class SprungMass {
     }
 
     @DebugLog
-    public void startGplEngine(int level, int rpm) {
-        gplTank.get().setLevel(level);
-        gplEngine.accelerate(rpm);
-        gplTank.get().setLevel(1);
-        Log.d("tag", " level is only 1, i can't start the gplEngine ");
-        gplEngine.accelerate(10);
-        gplTank.get().setLevel(1);
-        gplEngine.accelerate(0);
-        Log.d("tag", " [_]P coffee! [_]P ");
-        gplTank.get().setLevel(0);
+    public void startGplEngine(int fuelToAdd, int rpmRequested) {
+        gplTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
+        gplEngine.accelerate(rpmRequested);
+        Log.d(TAG, "GplEngine: Not enough fuel to accelerate");
+
+        gplTank.get().refill(0);
+        gplEngine.accelerate(5);
+        Log.d(TAG, "GplEngine: accelerated successfully at 5");
+
+        gplTank.get().refill(10);
+        gplEngine.accelerate(20);
+        Log.d(TAG, "GplEngine: accelerated successfully at 20");
     }
 
     @DebugLog
-    public void startPetrolEngine(int level, int rpm) {
-        petrolTank.get().setLevel(level);
-        petrolEngine.accelerate(rpm);
-        petrolTank.get().setLevel(1);
-        Log.d("tag", " level is only 1, i can't start the petrolEngine ");
-        petrolEngine.accelerate(10);
-        petrolTank.get().setLevel(1);
-        petrolEngine.accelerate(0);
-        Log.d("tag", " [_]P coffee! [_]P ");
-        petrolTank.get().setLevel(0);
+    public void startPetrolEngine(int fuelToAdd, int rpmRequested) {
+        petrolTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
+        petrolEngine.accelerate(rpmRequested);
+        Log.d(TAG, "PetrolEngine: Not enough fuel to accelerate");
+
+        petrolTank.get().refill(0);
+        petrolEngine.accelerate(5);
+        Log.d(TAG, "PetrolEngine: accelerated successfully at 5");
+
+        petrolTank.get().refill(10);
+        petrolEngine.accelerate(20);
+        Log.d(TAG, "PetrolEngine: accelerated successfully at 20");
     }
 
     @DebugLog
-    public void startElectricEngine(int level, int rpm) {
-        electricTank.get().setLevel(level);
-        electricEngine.accelerate(rpm);
-        electricTank.get().setLevel(1);
-        Log.d("tag", " level is only 1, i can't start the electricEngine ");
-        electricEngine.accelerate(10);
-        electricTank.get().setLevel(1);
-        electricEngine.accelerate(0);
-        Log.d("tag", " [_]P coffee! [_]P ");
-        electricTank.get().setLevel(0);
+    public void startElectricEngine(int fuelToAdd, int rpmRequested) {
+        electricTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
+        electricEngine.accelerate(rpmRequested);
+        Log.d(TAG, "ElectricEngine: Not enough fuel to accelerate");
+
+        electricTank.get().refill(0);
+        electricEngine.accelerate(5);
+        Log.d(TAG, "ElectricEngine: accelerated successfully at 5");
+
+        electricTank.get().refill(10);
+        electricEngine.accelerate(20);
+        Log.d(TAG, "ElectricEngine: accelerated successfully at 20");
     }
 }

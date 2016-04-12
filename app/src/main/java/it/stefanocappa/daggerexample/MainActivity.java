@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Vehicle p = new Vehicle();
-        p.startEngines(25, 20);
+        p.startEngines(10, 20);
 
 //        SprungMass v = new SprungMass();
 //        v.startGplMotor(10, 50);

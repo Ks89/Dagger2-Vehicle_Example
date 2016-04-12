@@ -9,13 +9,13 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.Petrol;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class PetrolEngine extends Motor {
-    private int level;
+    private static final String TAG = PetrolEngine.class.getSimpleName();
     private int energy = 0;
 
     @Inject
     public PetrolEngine(@Petrol Tank tank) {
         this.tank = tank;
-        Log.d("PetrolEngine", "PetrolEngine log");
+        Log.d(TAG, "PetrolEngine log");
     }
 
     @Override
@@ -26,17 +26,17 @@ public class PetrolEngine extends Motor {
     @Override
     @DebugLog
     public void accelerate(int value) {
-        if (tank.getLevel() > value) {
-            Log.d("PetrolMotor", "Petrol engine accelerating with energy: " + tank.getLevel());
+        if (tank.getCurrentLevel() > value) {
+            Log.d(TAG, "Petrol engine accelerating with energy: " + tank.getCurrentLevel());
             this.rpm = value;
             this.energy = 0;
         } else {
-            Log.d("PetrolMotor", "Not enough fuel");
+            Log.d(TAG, "Not enough fuel. Current is: " + tank.getCurrentLevel() + ", requested is " + value);
         }
     }
 
     @Override
     public void brake() {
-        Log.d("DaggerExample", "Petrol braking ");
+        Log.d(TAG, "PetrolEngine braking ");
     }
 }

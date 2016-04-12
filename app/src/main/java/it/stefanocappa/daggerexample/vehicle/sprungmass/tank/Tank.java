@@ -1,7 +1,7 @@
 package it.stefanocappa.daggerexample.vehicle.sprungmass.tank;
 
 public interface Tank {
-  void setLevel(int level);
-  int getLevel();
+  void refill(int level);
+  int getCurrentLevel();
   boolean isFull();
 }

@@ -13,13 +13,13 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
  * Created by Ks89 on 17/03/16.
  */
 public class ElectricEngine extends Motor {
-    private int level;
+    private static final String TAG = ElectricEngine.class.getSimpleName();
     private int energy = 0;
 
     @Inject
     public ElectricEngine(@Electric Tank tank) {
         this.tank = tank;
-        Log.d("ElectricEngine", "ElectricEngine log");
+        Log.d(TAG, "ElectricEngine log");
     }
 
     @Override
@@ -30,17 +30,17 @@ public class ElectricEngine extends Motor {
     @Override
     @DebugLog
     public void accelerate(int value) {
-        if (tank.getLevel() > value) {
-            Log.d("ElectricEngine", "Electric engine accelerating with energy: " + tank.getLevel());
+        if (tank.getCurrentLevel() > value) {
+            Log.d(TAG, "Electric engine accelerating with energy: " + tank.getCurrentLevel());
             this.rpm = value;
             this.energy = 0;
         } else {
-            Log.d("ElectricEngine", "Not enough fuel");
+            Log.d(TAG, "Not enough fuel. Current is: " + tank.getCurrentLevel() + ", requested is " + value);
         }
     }
 
     @Override
     public void brake() {
-        Log.d("DaggerExample", "Electric braking ");
+        Log.d(TAG, "ElectricEngine braking ");
     }
 }

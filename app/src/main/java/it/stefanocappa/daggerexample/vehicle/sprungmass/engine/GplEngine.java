@@ -9,13 +9,13 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.Gpl;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class GplEngine extends Motor {
-    private int level;
+    private static final String TAG = GplEngine.class.getSimpleName();
     private int energy = 0;
 
     @Inject
     public GplEngine(@Gpl Tank tank) {
         this.tank = tank;
-        Log.d("GplEngine", "GplEngine log");
+        Log.d(TAG, "GplEngine log");
     }
 
     @Override
@@ -31,17 +31,17 @@ public class GplEngine extends Motor {
     @Override
     @DebugLog
     public void accelerate(int value) {
-        if (tank.getLevel() > value) {
-            Log.d("GplMotor", "Gpl engine accelerating with energy: " + tank.getLevel());
+        if (tank.getCurrentLevel() > value) {
+            Log.d(TAG, "Gpl engine accelerating with energy: " + tank.getCurrentLevel());
             this.rpm = value;
             this.energy = 0;
         } else {
-            Log.d("GplMotor", "Not enough fuel");
+            Log.d(TAG, "Not enough fuel. Current is: " + tank.getCurrentLevel() + ", requested is " + value);
         }
     }
 
     @Override
     public void brake() {
-        Log.d("DaggerExample", "Gpl braking ");
+        Log.d(TAG, "GplEngine braking ");
     }
 }

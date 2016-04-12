@@ -16,9 +16,11 @@ public class Vehicle {
     }
 
     @DebugLog
-    public void startEngines(int level, int rpm) {
-        sprungMass.startGplEngine(level, rpm);
-        sprungMass.startPetrolEngine(level, rpm);
-        sprungMass.startElectricEngine(level, rpm);
+    public void startEngines(int fuelToAdd, int rpmRequested) {
+
+        //all Tanks are a limited capacity!!!
+        sprungMass.startGplEngine(fuelToAdd, rpmRequested);
+        sprungMass.startPetrolEngine(fuelToAdd, rpmRequested);
+        sprungMass.startElectricEngine(fuelToAdd, rpmRequested);
     }
 }
