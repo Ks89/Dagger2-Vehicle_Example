@@ -17,7 +17,6 @@ public class GplEngine extends Motor {
     }
 
     @Override
-    @DebugLog
     public void accelerate(int value) {
         if (tank.getCurrentLevel() >= value) {
             Log.d(TAG, "Engine accelerating to " + value + " with fuel: " + tank.getCurrentLevel());

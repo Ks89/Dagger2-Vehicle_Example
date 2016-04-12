@@ -13,19 +13,19 @@ public class SprungMass {
     Lazy<Tank> gplTank;
     @Inject
     @Gpl
-    Engine gplEngine;
+    Lazy<Engine> gplEngine;
     @Inject
     @Petrol
     Lazy<Tank> petrolTank;
     @Inject
     @Petrol
-    Engine petrolEngine;
+    Lazy<Engine> petrolEngine;
     @Inject
     @Electric
     Lazy<Tank> electricTank;
     @Inject
     @Electric
-    Engine electricEngine;
+    Lazy<Engine> electricEngine;
 
     @Inject
     public SprungMass() {
@@ -44,26 +44,26 @@ public class SprungMass {
     }
 
     public void acceleratePetrol(int rpmRequested) {
-        petrolEngine.accelerate(rpmRequested);
+        petrolEngine.get().accelerate(rpmRequested);
     }
 
     public void accelerateGpl(int rpmRequested) {
-        gplEngine.accelerate(rpmRequested);
+        gplEngine.get().accelerate(rpmRequested);
     }
 
     public void accelerateElectric(int rpmRequested) {
-        electricEngine.accelerate(rpmRequested);
+        electricEngine.get().accelerate(rpmRequested);
     }
 
     public void brakePetrol() {
-        petrolEngine.brake();
+        petrolEngine.get().brake();
     }
 
     public void brakeGpl() {
-        gplEngine.brake();
+        gplEngine.get().brake();
     }
 
     public void brakeElectric() {
-        electricEngine.brake();
+        electricEngine.get().brake();
     }
 }
