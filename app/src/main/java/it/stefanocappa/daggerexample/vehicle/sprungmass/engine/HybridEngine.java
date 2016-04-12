@@ -1,4 +1,6 @@
-package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
+package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
+
+//comment because I want to improve the rest of this example.
 //
 //import java.util.List;
 //

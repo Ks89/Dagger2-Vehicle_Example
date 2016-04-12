@@ -1,16 +1,12 @@
 package it.stefanocappa.daggerexample.vehicle.sprungmass;
 
-import android.util.Log;
-
 import javax.inject.Inject;
 
 import dagger.Lazy;
-import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.engine.Engine;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 
 public class SprungMass {
-    private static final String TAG = SprungMass.class.getSimpleName();
 
     @Inject
     @Gpl
@@ -35,48 +31,39 @@ public class SprungMass {
     public SprungMass() {
     }
 
-    @DebugLog
-    public void startGplEngine(int fuelToAdd, int rpmRequested) {
-        gplTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
-        gplEngine.accelerate(rpmRequested);
-        Log.d(TAG, "GplEngine: Not enough fuel to accelerate");
-
-        gplTank.get().refill(0);
-        gplEngine.accelerate(5);
-        Log.d(TAG, "GplEngine: accelerated successfully at 5");
-
-        gplTank.get().refill(10);
-        gplEngine.accelerate(20);
-        Log.d(TAG, "GplEngine: accelerated successfully at 20");
+    public void refillGpl(int fuelToAdd) {
+        gplTank.get().refill(fuelToAdd);
     }
 
-    @DebugLog
-    public void startPetrolEngine(int fuelToAdd, int rpmRequested) {
-        petrolTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
+    public void refillPetrol(int fuelToAdd) {
+        petrolTank.get().refill(fuelToAdd);
+    }
+
+    public void refillElectric(int fuelToAdd) {
+        electricTank.get().refill(fuelToAdd);
+    }
+
+    public void acceleratePetrol(int rpmRequested) {
         petrolEngine.accelerate(rpmRequested);
-        Log.d(TAG, "PetrolEngine: Not enough fuel to accelerate");
-
-        petrolTank.get().refill(0);
-        petrolEngine.accelerate(5);
-        Log.d(TAG, "PetrolEngine: accelerated successfully at 5");
-
-        petrolTank.get().refill(10);
-        petrolEngine.accelerate(20);
-        Log.d(TAG, "PetrolEngine: accelerated successfully at 20");
     }
 
-    @DebugLog
-    public void startElectricEngine(int fuelToAdd, int rpmRequested) {
-        electricTank.get().refill(fuelToAdd); //by default a tank starts empty (fuel==0)
+    public void accelerateGpl(int rpmRequested) {
+        gplEngine.accelerate(rpmRequested);
+    }
+
+    public void accelerateElectric(int rpmRequested) {
         electricEngine.accelerate(rpmRequested);
-        Log.d(TAG, "ElectricEngine: Not enough fuel to accelerate");
+    }
 
-        electricTank.get().refill(0);
-        electricEngine.accelerate(5);
-        Log.d(TAG, "ElectricEngine: accelerated successfully at 5");
+    public void brakePetrol() {
+        petrolEngine.brake();
+    }
 
-        electricTank.get().refill(10);
-        electricEngine.accelerate(20);
-        Log.d(TAG, "ElectricEngine: accelerated successfully at 20");
+    public void brakeGpl() {
+        gplEngine.brake();
+    }
+
+    public void brakeElectric() {
+        electricEngine.brake();
     }
 }

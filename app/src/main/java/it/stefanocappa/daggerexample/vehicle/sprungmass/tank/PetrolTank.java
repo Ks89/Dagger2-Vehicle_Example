@@ -4,30 +4,24 @@ import android.util.Log;
 
 import hugo.weaving.DebugLog;
 
-public class PetrolTank implements Tank {
+public class PetrolTank extends TankImpl {
     private static final String TAG = PetrolTank.class.getSimpleName();
-    int currentLevel;
-    int maximumCapacity = 50;
 
     @Override
     @DebugLog
     public void refill(int addedFuel) {
         Log.d(TAG, "Refill requested with: addedFuel: " + addedFuel + ", this.currentLevel + addedFuel: "
-                + (this.currentLevel + addedFuel) + ", maximumCapacity: " + maximumCapacity);
-        if (this.currentLevel + addedFuel < maximumCapacity) {
-            Log.d(TAG, " || || || filling petrol tank || || ||");
+                + (this.currentLevel + addedFuel) + ", maximumCapacity: " + Config.PETROL_TANK_MAX_CAPACITY);
+        if (this.currentLevel + addedFuel < Config.PETROL_TANK_MAX_CAPACITY) {
+            Log.d(TAG, " || || || filling tank || || ||");
             this.currentLevel = this.currentLevel + addedFuel;
         } else {
-            Log.e(TAG, "Petrol tank already full!!!");
+            Log.e(TAG, "You cannot exceed the maximum capacity: " + Config.PETROL_TANK_MAX_CAPACITY);
         }
-    }
-
-    public int getCurrentLevel() {
-        return this.currentLevel;
     }
 
     @Override
     public boolean isFull() {
-        return currentLevel == maximumCapacity;
+        return currentLevel == Config.PETROL_TANK_MAX_CAPACITY;
     }
 }

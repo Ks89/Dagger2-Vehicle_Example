@@ -1,18 +1,16 @@
 package it.stefanocappa.daggerexample;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 import it.stefanocappa.daggerexample.vehicle.Vehicle;
 
-
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,51 +19,18 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        Vehicle v = new Vehicle();
 
+        //.....SIMULATION.....
+        //ATTENTION: to create a simple simulation I made this assumption:
+        // 1rpm = 1fuel unit consumed
+        // to be able to accelerate to X rpm you need at least X fuel units in your tank
+        // if the acceleration will be completed, the vehicle, consume the exact amount of fuel unit passed ad rpm
+        // It's stupid, I know, it's only an example!!!
+        this.simulateElectricEngine(v);
+        this.simulateGplEngine(v);
+        this.simulatePetrolEngine(v);
 
-        Vehicle p = new Vehicle();
-        p.startEngines(10, 20);
-
-//        SprungMass v = new SprungMass();
-//        v.startGplMotor(10, 50);
-
-//        v.accelerateGplEngine(15);
-//        v.setGplLevel(10);
-//
-//        Log.d(MainActivity.class.getSimpleName(), "RPM: " + v.getGplRpm());
-//
-//        v.accelerateGplEngine(50);
-//
-//        Log.d(MainActivity.class.getSimpleName(), "RPM after acceleration: " + v.getGplRpm());
-
-        //v.startElectricMotor(45,34);
-
-
-//
-//        EngineModule engineModule = new EngineModule();
-//
-//
-//        VehicleComponent vehicleComponent = DaggerVehicleComponent.builder()
-//                //.tankModule(new TankModule())
-//                .engineModule(engineModule)
-//                .build();
-////        Tank tank = vehicleComponent.tank();
-////        Motor motor = vehicleComponent.motor();
-//
-//        VehicleMaker sprungMass = vehicleComponent.sprungMass();
-//        sprungMass.startElectricMotor(10, 5);
-//        sprungMass.startPetrolMotor(30, 20);
-//        sprungMass.startGplMotor(30, 15);
-//        sprungMass.startHybridMotor(20, 10, 18);
-//        sprungMass.startHybridElectricMotor(15, 15, 18);
 
         // WheelModule wheelModule = new WheelModule();
 //        UnsprungMassModule unsprungMassModule = new UnsprungMassModule();
@@ -83,8 +48,59 @@ public class MainActivity extends AppCompatActivity {
 //        unsprungMassMaker.setSuspensionType("semi-active");
 //        unsprungMassMaker.setTiresSize(17);
 //        unsprungMassMaker.setTiresPressure(32);
+    }
 
 
+    private void simulateGplEngine(Vehicle v) {
+        Log.d(TAG, "--------------GPL---------------");
+        v.refillGpl(25); //by default a tank starts empty (fuel==0)
+        v.accelerateGpl(20); //ok because 25 >= 20 | fuel remaining = 5
+
+        v.refillGpl(0); //already 5
+        v.accelerateGpl(3); //ok because 5 >= 3 | fuel remaining = 2
+
+        v.refillGpl(8); //2+8=10
+        v.accelerateGpl(50); //ERROR because 10 < 50 | fuel remaining = 10 (no changes)
+
+        v.refillGpl(10); //10+10=20
+        v.refillGpl(100); //20+100=120 //ERROR you exceeded the capacity
+
+        v.brakeGpl();
+    }
+
+    private void simulatePetrolEngine(Vehicle v) {
+        Log.d(TAG, "--------------PETROL---------------");
+        v.refillPetrol(25); //by default a tank starts empty (fuel==0)
+        v.acceleratePetrol(20); //ok because 25 >= 20 | fuel remaining = 5
+
+        v.refillPetrol(0); //already 5
+        v.acceleratePetrol(3); //ok because 5 >= 3 | fuel remaining = 2
+
+        v.refillPetrol(8); //2+8=10
+        v.acceleratePetrol(50); //ERROR because 10 < 50 | fuel remaining = 10 (no changes)
+
+        v.refillPetrol(10); //10+10=20
+        v.refillPetrol(100); //20+100=120 //ERROR you exceeded the capacity
+
+        v.brakePetrol();
+    }
+
+
+    private void simulateElectricEngine(Vehicle v) {
+        Log.d(TAG, "--------------ELECTRIC---------------");
+        v.refillElectric(25); //by default a tank starts empty (fuel==0)
+        v.accelerateElectric(20); //ok because 25 >= 20 | fuel remaining = 5
+
+        v.refillElectric(0); //already 5
+        v.accelerateElectric(3); //ok because 5 >= 3 | fuel remaining = 2
+
+        v.refillElectric(8); //2+8=10
+        v.accelerateElectric(50); //ERROR because 10 < 50 | fuel remaining = 10 (no changes)
+
+        v.refillElectric(10); //10+10=20
+        v.refillElectric(100); //20+100=120 //ERROR you exceeded the capacity
+
+        v.brakeElectric();
     }
 
     @Override
