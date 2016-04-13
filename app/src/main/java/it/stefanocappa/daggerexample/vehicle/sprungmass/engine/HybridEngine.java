@@ -1,21 +1,18 @@
-package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
-
-//comment because I want to improve the rest of this example.
+//package it.stefanocappa.daggerexample.vehicle.sprungmass.engine;
+//
 //
 //import java.util.List;
 //
 //import javax.inject.Inject;
 //
-//import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
-//
 ///**
 // * Created by Ks89 on 21/03/16.
 // */
-//public class HybridMotor implements Engine {
+//public class HybridEngine {
 //    private List<Engine> engines;
 //
 //    @Inject
-//    public HybridMotor(List<Engine> engines) {
+//    public HybridEngine(List<Engine> engines) {
 //        this.engines = engines;
 //    }
 //

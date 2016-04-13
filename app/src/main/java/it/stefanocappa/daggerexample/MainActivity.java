@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         this.simulatePetrolEngine(v);
 
 
-        // WheelModule wheelModule = new WheelModule();
+        // WheelComponent wheelModule = new WheelComponent();
 //        UnsprungMassModule unsprungMassModule = new UnsprungMassModule();
 //
 //        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()

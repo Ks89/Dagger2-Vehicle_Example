@@ -1,16 +1,22 @@
 package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
 
+import javax.inject.Inject;
+
 /**
  * Created by Ks89 on 30/03/16.
  */
 public class Wheel {
 
-    private Suspension suspension;
-    private Tire tire;
+    //private boolean abs = true;
+    //private boolean esc = true;
 
-    public Wheel(Suspension suspension, Tire tire) {
-        this.suspension = suspension;
-        this.tire = tire;
+    @Inject
+    Suspension suspension;
+    @Inject
+    Tire tire;
+
+    @Inject
+    public Wheel() {
     }
 
     public Suspension getSuspension() {
@@ -23,6 +29,10 @@ public class Wheel {
 
     public Tire getTire() {
         return tire;
+    }
+
+    public int callExpMethod(int i) {
+        return i + 1;
     }
 
     public void setTire(Tire tire) {
