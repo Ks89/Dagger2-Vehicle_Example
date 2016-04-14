@@ -7,9 +7,6 @@ import javax.inject.Inject;
  */
 public class Wheel {
 
-    //private boolean abs = true;
-    //private boolean esc = true;
-
     @Inject
     Suspension suspension;
     @Inject

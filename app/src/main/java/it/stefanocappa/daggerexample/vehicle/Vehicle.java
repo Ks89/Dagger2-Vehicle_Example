@@ -2,6 +2,9 @@ package it.stefanocappa.daggerexample.vehicle;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
@@ -24,7 +27,17 @@ public class Vehicle {
         UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder().build();
         this.unsprungMass = unsprungMassComponent.unsprungMass();
         int res = this.unsprungMass.testMethodCall(5);
-        Log.d(TAG, "returned: " + res);
+
+        List<Integer> values = new ArrayList<>(4);
+        values.add(2);
+        values.add(4);
+        values.add(7);
+        values.add(6);
+
+        List<Integer> list = this.unsprungMass.testMethodCall(values);
+        for (Integer i : list) {
+            Log.d(TAG, "returned: " + i);
+        }
         //------------------------------------------------------
 
 //        WheelComponent wheelComponent = DaggerWheelComponent.builder().build();
