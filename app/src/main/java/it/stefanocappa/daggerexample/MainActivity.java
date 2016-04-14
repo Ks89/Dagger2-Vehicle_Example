@@ -25,6 +25,8 @@ import it.stefanocappa.daggerexample.vehicle.Vehicle;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
 
+    private static final int NUMBER_OF_WHEELS = 4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        Vehicle v = new Vehicle();
+        Vehicle v = new Vehicle(NUMBER_OF_WHEELS);
+
+//        v.getUnsprungMass().setSize(17); //inches
+//        v.getUnsprungMass().setSuspensionType("Semi-Active");
+//        v.getUnsprungMass().setPressure(35); //PSI
+//        v.getUnsprungMass().setTireType("Performance-Tire");
 
         //.....SIMULATION.....
         //ATTENTION: to create a simple simulation I made this assumption:
@@ -43,15 +50,6 @@ public class MainActivity extends AppCompatActivity {
         this.simulateElectricEngine(v);
         this.simulateGplEngine(v);
         this.simulatePetrolEngine(v);
-
-
-
-//        unsprungMassMaker.startWheels();
-//        unsprungMassMaker.setType("winter");
-//        unsprungMassMaker.setSpeed(sprungMass.getRpm());
-//        unsprungMassMaker.setSuspensionType("semi-active");
-//        unsprungMassMaker.setTiresSize(17);
-//        unsprungMassMaker.setTiresPressure(32);
     }
 
 

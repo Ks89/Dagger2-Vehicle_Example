@@ -13,7 +13,6 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle.unsprungmass;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,11 +21,9 @@ import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
 
 public class UnsprungMass {
 
+    //TODO implements abs and esc!!!!
     private boolean abs = true;
     private boolean esc = true;
-
-    @Inject
-    Wheel wheel;
 
     @Inject
     List<Wheel> wheels;
@@ -35,19 +32,93 @@ public class UnsprungMass {
     UnsprungMass() {
     }
 
-    public int testMethodCall(int i) {
-        return wheel.callExpMethod(i);
-    }
-
-    public List<Integer> testMethodCall(List<Integer> intElem) {
-        List<Integer> returned = new ArrayList<>(wheels.size());
-
+    public void setRpm(int rpm) {
         for (int i = 0; i < wheels.size(); i++) {
-            returned.add(wheels.get(i).callExpMethod(intElem.get(i)));
+            wheels.get(i).setRpm(rpm);
         }
-
-        return returned;
     }
 
+    public void setPressure(int pressure) {
+        for (int i = 0; i < wheels.size(); i++) {
+            wheels.get(i).setPressure(pressure);
+        }
+    }
 
+    public void setSize(int size) {
+        for (int i = 0; i < wheels.size(); i++) {
+            wheels.get(i).setSize(size);
+        }
+    }
+
+    public void setTireType(String type) {
+        for (int i = 0; i < wheels.size(); i++) {
+            wheels.get(i).setTireType(type);
+        }
+    }
+
+    public void setSuspensionType(String type) {
+        for (int i = 0; i < wheels.size(); i++) {
+            wheels.get(i).setSuspensionType(type);
+        }
+    }
+
+    public int getRpm() { //averagePressure
+        // Rpm should equals to all tires, but I decided to implement this because it's more general
+        int avgRpm = 0;
+        for (int i = 0; i < wheels.size(); i++) {
+            avgRpm = avgRpm + wheels.get(i).getRpm();
+        }
+        return avgRpm / wheels.size();
+    }
+
+    public int getRpmSingleTire(int tireNumber) {
+        if (wheels.size() > tireNumber) {
+            return wheels.get(tireNumber).getRpm();
+        } else {
+            return -1;
+        }
+    }
+
+    public int getAveragePressure() {
+        int avgPressure = 0;
+        for (int i = 0; i < wheels.size(); i++) {
+            avgPressure = avgPressure + wheels.get(i).getPressure();
+        }
+        return avgPressure / wheels.size();
+    }
+
+    public int getPressureSingleTire(int tireNumber) {
+        if (wheels.size() > tireNumber) {
+            return wheels.get(tireNumber).getPressure();
+        } else {
+            return -1;
+        }
+    }
+
+    //all tires must have the same size
+    public int getSize() {
+        if (wheels.size() > 0) {
+            return wheels.get(0).getSize();
+        } else {
+            return -1;
+        }
+    }
+
+    //all tires must have the same size
+    public String getTireType() {
+        if (wheels.size() > 0) {
+            return wheels.get(0).getTireType();
+        } else {
+            return null;
+        }
+    }
+
+    //all suspensions must have the same type
+    public String getSuspensionType() {
+        if (wheels.size() > 0) {
+            return wheels.get(0).getSuspensionType();
+        } else {
+            return null;
+        }
+    }
 }

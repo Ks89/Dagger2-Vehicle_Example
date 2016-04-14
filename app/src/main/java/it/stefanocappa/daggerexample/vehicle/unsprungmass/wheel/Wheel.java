@@ -29,23 +29,43 @@ public class Wheel {
     public Wheel() {
     }
 
-    public Suspension getSuspension() {
-        return suspension;
+    public void setRpm(int rpm) {
+        tire.setRpm(rpm);
     }
 
-    public void setSuspension(Suspension suspension) {
-        this.suspension = suspension;
+    public void setPressure(int pressure) {
+        tire.setPressure(pressure);
     }
 
-    public Tire getTire() {
-        return tire;
+    public void setSize(int size) {
+        tire.setSize(size);
     }
 
-    public int callExpMethod(int i) {
-        return i + 1;
+    public void setTireType(String type) {
+        tire.setType(type);
     }
 
-    public void setTire(Tire tire) {
-        this.tire = tire;
+    public void setSuspensionType(String type) {
+        suspension.setType(type);
+    }
+
+    public int getRpm() {
+        return tire.getRpm();
+    }
+
+    public int getPressure() {
+        return tire.getPressure();
+    }
+
+    public int getSize() {
+        return tire.getSize();
+    }
+
+    public String getTireType() {
+        return tire.getType();
+    }
+
+    public String getSuspensionType() {
+        return suspension.getType();
     }
 }

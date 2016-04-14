@@ -13,11 +13,6 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle;
 
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
@@ -29,41 +24,23 @@ import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelModule;
 public class Vehicle {
     private static final String TAG = Vehicle.class.getSimpleName();
 
-    private static final int NUMBER_OF_WHEELS = 4;
-
     private SprungMass sprungMass;
     private UnsprungMass unsprungMass;
-    //private Wheel wheel;
 
-    public Vehicle() {
+    public Vehicle(int numberOfWheels) {
+        //-------------------Sprung mass--------------------
         SprungMassComponent sprungMassComponent = DaggerSprungMassComponent.builder().build();
         this.sprungMass = sprungMassComponent.sprungMass();
 
-        //----------------EXPERIMEMTAL - CRAZY THINGS!!!!-------
+        //-------------------Unsprung mass-------------------
         UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
-                .wheelModule(new WheelModule(NUMBER_OF_WHEELS))
+                .wheelModule(new WheelModule(numberOfWheels))
                 .build();
-
         this.unsprungMass = unsprungMassComponent.unsprungMass();
-
-        List<Integer> values = new ArrayList<>(NUMBER_OF_WHEELS);
-        values.add(2);
-        values.add(4);
-        values.add(7);
-        values.add(6);
-
-        List<Integer> list = this.unsprungMass.testMethodCall(values);
-        for (Integer i : list) {
-            Log.d(TAG, "returned: " + i);
-        }
-        //------------------------------------------------------
-
-//        WheelComponent wheelComponent = DaggerWheelComponent.builder().build();
-//        this.wheel = wheelComponent.wheel();
     }
 
-    public void testCallMethod(int i) {
-        this.unsprungMass.testMethodCall(i);
+    public UnsprungMass getUnsprungMass() {
+        return unsprungMass;
     }
 
     public void refillGpl(int fuelToAdd) {

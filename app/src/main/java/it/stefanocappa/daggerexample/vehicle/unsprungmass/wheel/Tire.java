@@ -23,7 +23,11 @@ public interface Tire {
 
     void setPressure(int pressure);
 
-    void setSpeed(int rpm);
+    int getRpm();
+
+    void setRpm(int rpm);
+
+    String getType();
 
     void setType(String type);
 

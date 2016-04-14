@@ -50,12 +50,22 @@ public class TireImpl implements Tire {
     }
 
     @Override
-    public void setSpeed(int rpm) {
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Override
+    public int getRpm() {
+        return rpm;
+    }
+
+    @Override
+    public void setRpm(int rpm) {
         this.rpm = rpm;
     }
 
     @Override
-    public void setType(String type) {
-        this.type = type;
+    public String getType() {
+        return type;
     }
 }

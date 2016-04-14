@@ -22,14 +22,15 @@ public class SuspensionImpl implements Suspension {
 
     private String type;
 
-    public String getType() {
-        return type;
-    }
-
     @Inject
     public SuspensionImpl() {
     }
 
+    public String getType() {
+        return type;
+    }
+
+    @Override
     public void setType(String type) {
         this.type = type;
     }
