@@ -19,6 +19,8 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.DaggerUnsprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.SuspensionModule;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.TireModule;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelModule;
 
 public class Vehicle {
@@ -26,21 +28,26 @@ public class Vehicle {
 
     private SprungMass sprungMass;
     private UnsprungMass unsprungMass;
+    //private Wheel wheel;
 
-    public Vehicle(int numberOfWheels) {
+    public Vehicle(int wheelsNum) {
+
         //-------------------Sprung mass--------------------
         SprungMassComponent sprungMassComponent = DaggerSprungMassComponent.builder().build();
         this.sprungMass = sprungMassComponent.sprungMass();
 
         //-------------------Unsprung mass-------------------
         UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
-                .wheelModule(new WheelModule(numberOfWheels))
+                .suspensionModule(new SuspensionModule())
+                .tireModule(new TireModule())
+                .wheelModule(new WheelModule(wheelsNum))
                 .build();
+
         this.unsprungMass = unsprungMassComponent.unsprungMass();
     }
 
     public UnsprungMass getUnsprungMass() {
-        return unsprungMass;
+        return this.unsprungMass;
     }
 
     public void refillGpl(int fuelToAdd) {

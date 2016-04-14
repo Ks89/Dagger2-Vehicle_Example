@@ -31,11 +31,6 @@ public class WheelModule {
     }
 
     @Provides
-    Wheel provideWheel() {
-        return new Wheel();
-    }
-
-    @Provides
     List<Wheel> provideWheels() {
         Log.d("WheelModule", "wheelNumber: " + wheelNumber);
         List<Wheel> wheels = new ArrayList<>(wheelNumber);

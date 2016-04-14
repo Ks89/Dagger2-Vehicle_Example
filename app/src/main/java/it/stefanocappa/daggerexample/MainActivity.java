@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         Vehicle v = new Vehicle(NUMBER_OF_WHEELS);
 
-//        v.getUnsprungMass().setSize(17); //inches
+        v.getUnsprungMass().setSize(17); //inches
 //        v.getUnsprungMass().setSuspensionType("Semi-Active");
 //        v.getUnsprungMass().setPressure(35); //PSI
 //        v.getUnsprungMass().setTireType("Performance-Tire");
