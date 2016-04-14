@@ -11,9 +11,12 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.DaggerUnsprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelModule;
 
 public class Vehicle {
     private static final String TAG = Vehicle.class.getSimpleName();
+
+    private static final int NUMBER_OF_WHEELS = 4;
 
     private SprungMass sprungMass;
     private UnsprungMass unsprungMass;
@@ -24,11 +27,13 @@ public class Vehicle {
         this.sprungMass = sprungMassComponent.sprungMass();
 
         //----------------EXPERIMEMTAL - CRAZY THINGS!!!!-------
-        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder().build();
-        this.unsprungMass = unsprungMassComponent.unsprungMass();
-        int res = this.unsprungMass.testMethodCall(5);
+        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
+                .wheelModule(new WheelModule(NUMBER_OF_WHEELS))
+                .build();
 
-        List<Integer> values = new ArrayList<>(4);
+        this.unsprungMass = unsprungMassComponent.unsprungMass();
+
+        List<Integer> values = new ArrayList<>(NUMBER_OF_WHEELS);
         values.add(2);
         values.add(4);
         values.add(7);
