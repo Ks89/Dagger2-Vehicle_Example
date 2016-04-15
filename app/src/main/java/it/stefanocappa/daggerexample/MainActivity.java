@@ -37,9 +37,14 @@ public class MainActivity extends AppCompatActivity {
         Vehicle v = new Vehicle(NUMBER_OF_WHEELS);
 
         v.getUnsprungMass().setSize(17); //inches
-//        v.getUnsprungMass().setSuspensionType("Semi-Active");
-//        v.getUnsprungMass().setPressure(35); //PSI
-//        v.getUnsprungMass().setTireType("Performance-Tire");
+        v.getUnsprungMass().setSuspensionType("Semi-Active");
+        v.getUnsprungMass().setPressure(35); //PSI
+        v.getUnsprungMass().setTireType("Performance-Tire");
+
+        Log.d(TAG, "size: " + v.getUnsprungMass().getSize());
+        Log.d(TAG, "susp type: " + v.getUnsprungMass().getSuspensionType());
+        Log.d(TAG, "pressure: " + v.getUnsprungMass().getPressure());
+        Log.d(TAG, "tire type: " + v.getUnsprungMass().getTireType());
 
         //.....SIMULATION.....
         //ATTENTION: to create a simple simulation I made this assumption:

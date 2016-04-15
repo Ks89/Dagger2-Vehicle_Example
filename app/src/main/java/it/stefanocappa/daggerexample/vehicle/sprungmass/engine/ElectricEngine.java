@@ -17,7 +17,6 @@ import android.util.Log;
 
 import javax.inject.Inject;
 
-import hugo.weaving.DebugLog;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.Electric;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.tank.Tank;
 

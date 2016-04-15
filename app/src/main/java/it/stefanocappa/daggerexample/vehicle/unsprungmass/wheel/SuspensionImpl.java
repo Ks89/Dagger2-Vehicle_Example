@@ -13,18 +13,12 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
 
-import javax.inject.Inject;
-
 /**
  * Created by Ks89 on 24/03/16.
  */
 public class SuspensionImpl implements Suspension {
 
     private String type;
-
-    @Inject
-    public SuspensionImpl() {
-    }
 
     public String getType() {
         return type;

@@ -22,6 +22,7 @@ public class Wheel {
 
     @Inject
     Suspension suspension;
+
     @Inject
     Tire tire;
 

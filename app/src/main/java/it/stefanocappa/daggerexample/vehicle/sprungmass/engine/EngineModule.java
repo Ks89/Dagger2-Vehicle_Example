@@ -21,22 +21,25 @@ import it.stefanocappa.daggerexample.vehicle.sprungmass.Petrol;
 
 @Module
 public class EngineModule {
-  @Provides @Gpl
-  Engine provideGplEngine(GplEngine engine) {
-    return engine;
-  }
+    @Provides
+    @Gpl
+    Engine provideGplEngine(GplEngine engine) {
+        return engine;
+    }
 
-  @Provides @Petrol
-  Engine providePetrolEngine(PetrolEngine engine) {
-    return engine;
-  }
+    @Provides
+    @Petrol
+    Engine providePetrolEngine(PetrolEngine engine) {
+        return engine;
+    }
 
-  @Provides @Electric
-  Engine provideElectricEngine(ElectricEngine engine) {
-    return engine;
-  }
+    @Provides
+    @Electric
+    Engine provideElectricEngine(ElectricEngine engine) {
+        return engine;
+    }
 
-  //    @Provides
+    //    @Provides
 //    @Named("hybrid_engine")
 //    HybridMotor provideHybridEngine(@Gpl Tank tank1, @Petrol Tank tank2) {
 //        List<Engine> e = new ArrayList<>();

@@ -13,8 +13,6 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
 
-import javax.inject.Inject;
-
 /**
  * Created by Ks89 on 24/03/16.
  */
@@ -24,10 +22,6 @@ public class TireImpl implements Tire {
     private int pressure;
     private int rpm;
     private String type;
-
-    @Inject
-    public TireImpl() {
-    }
 
     @Override
     public int getSize() {
