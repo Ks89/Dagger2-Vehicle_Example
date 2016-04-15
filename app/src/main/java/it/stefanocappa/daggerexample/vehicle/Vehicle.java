@@ -16,16 +16,15 @@ package it.stefanocappa.daggerexample.vehicle;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.DaggerWheelComponent;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelComponent;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.DaggerUnsprungMassComponent;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMassComponent;
 
 public class Vehicle {
     private static final String TAG = Vehicle.class.getSimpleName();
 
     private SprungMass sprungMass;
-//   private UnsprungMass unsprungMass;
-    private Wheel wheel;
+    private UnsprungMass unsprungMass;
 
     public Vehicle(int wheelsNum) {
 
@@ -34,17 +33,17 @@ public class Vehicle {
         this.sprungMass = sprungMassComponent.sprungMass();
 
         //-------------------Unsprung mass-------------------
-//        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
-//                .build();
-//
-//        this.unsprungMass = unsprungMassComponent.unsprungMass();
-        WheelComponent wheelComponent = DaggerWheelComponent.builder()
+        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
                 .build();
-        this.wheel = wheelComponent.wheel();
+        this.unsprungMass = unsprungMassComponent.unsprungMass();
+//        WheelComponent wheelComponent = DaggerWheelComponent.builder()
+//                .build();
+//        this.wheel = wheelComponent.wheel();
+
     }
 
-    public Wheel getUnsprungMass() {
-        return this.wheel;
+    public UnsprungMass getUnsprungMass() {
+        return this.unsprungMass;
     }
 
     public void refillGpl(int fuelToAdd) {

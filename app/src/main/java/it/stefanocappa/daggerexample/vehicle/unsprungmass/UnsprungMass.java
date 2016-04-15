@@ -1,43 +1,54 @@
-///*
-//Copyright 2016 Stefano Cappa
-//Licensed under the Apache License, Version 2.0 (the "License");
-//you may not use this file except in compliance with the License.
-//You may obtain a copy of the License at
-//    http://www.apache.org/licenses/LICENSE-2.0
-//Unless required by applicable law or agreed to in writing, software
-//distributed under the License is distributed on an "AS IS" BASIS,
-//WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//See the License for the specific language governing permissions and
-//limitations under the License.
-// */
-//
-//package it.stefanocappa.daggerexample.vehicle.unsprungmass;
-//
-//import java.util.List;
-//
-//import javax.inject.Inject;
-//
-//import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
-//
-//public class UnsprungMass {
-//
-//    //TODO implements abs and esc!!!!
-//    private boolean abs = true;
-//    private boolean esc = true;
-//
-//    @Inject
-//    Wheel wheel1;
-////    @Inject
-////    Wheel wheel2;
-////    @Inject
-////    Wheel wheel3;
-////    @Inject
-////    Wheel wheel4;
-//
-//    List<Wheel> wheels;
-//
-//    @Inject
-//    UnsprungMass() {
+/*
+Copyright 2016 Stefano Cappa
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+
+package it.stefanocappa.daggerexample.vehicle.unsprungmass;
+
+import javax.inject.Inject;
+
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Tire;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelInt;
+
+public class UnsprungMass {
+
+    //TODO implements abs and esc!!!!
+    private boolean abs = true;
+    private boolean esc = true;
+
+    @Inject
+    Tire tire;
+
+    @Inject
+    WheelInt wheel;
+
+    @Inject
+    public UnsprungMass() {
+    }
+
+    public void setSize(int size) {
+        wheel.setSize(size);
+    }
+
+    public void setPressure(int pressure) {
+        tire.setPressure(pressure);
+    }
+
+
+//    public UnsprungMass(int wheelNumber) {
+//        WheelComponent wheelComponent = DaggerWheelComponent.builder().build();
+//        for (int i = 0; i < wheelNumber; i++) {
+//            this.wheels.add(wheelComponent.wheel());
+//        }
 //    }
 //
 //    public void setRpm(int rpm) {
@@ -129,4 +140,4 @@
 //            return null;
 //        }
 //    }
-//}
+}

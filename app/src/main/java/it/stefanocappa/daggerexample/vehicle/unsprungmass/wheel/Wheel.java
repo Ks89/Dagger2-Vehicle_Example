@@ -18,16 +18,16 @@ import javax.inject.Inject;
 /**
  * Created by Ks89 on 30/03/16.
  */
-public class Wheel {
+public class Wheel implements WheelInt {
+
+//    @Inject
+    //Suspension suspension;
+
+    private Tire tire;
 
     @Inject
-    Suspension suspension;
-
-    @Inject
-    Tire tire;
-
-    @Inject
-    public Wheel() {
+    public Wheel(Tire tire) {
+        this.tire = tire;
     }
 
     public void setRpm(int rpm) {
@@ -46,9 +46,9 @@ public class Wheel {
         tire.setType(type);
     }
 
-    public void setSuspensionType(String type) {
-        suspension.setType(type);
-    }
+//    public void setSuspensionType(String type) {
+//        suspension.setType(type);
+//    }
 
     public int getRpm() {
         return tire.getRpm();
@@ -66,7 +66,7 @@ public class Wheel {
         return tire.getType();
     }
 
-    public String getSuspensionType() {
-        return suspension.getType();
-    }
+//    public String getSuspensionType() {
+//        return suspension.getType();
+//    }
 }
