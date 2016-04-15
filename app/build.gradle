@@ -4,7 +4,7 @@ apply plugin: 'com.jakewharton.hugo'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "it.stefanocappa.dagger2example"
@@ -23,7 +23,7 @@ android {
 
 
 task wrapper(type: Wrapper) {
-    gradleVersion = "2.10"
+    gradleVersion = "2.12"
 }
 
 dependencies {
@@ -32,6 +32,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.3.0'
     compile 'com.android.support:design:23.3.0'
     compile 'com.google.dagger:dagger:2.2'
-    provided 'com.google.dagger:dagger-compiler:2.0.1'
+    provided 'com.google.dagger:dagger-compiler:2.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
 }
