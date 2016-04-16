@@ -21,10 +21,29 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="No GUI for this app. Read the Logcat!!!"
-        android:textAlignment="center" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to my example of Dagger 2!"
+            android:textAlignment="center"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No GUI for this app. Read the Logcat!!!"
+            android:textAlignment="center"
+            android:id="@+id/editText"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>

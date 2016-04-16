@@ -20,5 +20,5 @@
 // */
 //@Component(modules = {SuspensionModule.class, TireModule.class})
 //public interface WheelComponent {
-//    Wheel wheel();
+//    WheelImpl wheel();
 //}

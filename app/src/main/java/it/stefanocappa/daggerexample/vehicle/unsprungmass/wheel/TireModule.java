@@ -13,8 +13,6 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
 
-import javax.inject.Singleton;
-
 import dagger.Module;
 import dagger.Provides;
 
@@ -22,7 +20,6 @@ import dagger.Provides;
 public class TireModule {
 
     @Provides
-    @Singleton
     Tire provideTire() {
         return new TireImpl();
     }

@@ -15,9 +15,9 @@ package it.stefanocappa.daggerexample.vehicle.unsprungmass;
 
 import javax.inject.Inject;
 
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Suspension;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Tire;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelInt;
 
 public class UnsprungMass {
 
@@ -27,9 +27,11 @@ public class UnsprungMass {
 
     @Inject
     Tire tire;
+    @Inject
+    Suspension suspension;
 
     @Inject
-    WheelInt wheel;
+    Wheel wheel;
 
     @Inject
     public UnsprungMass() {
@@ -39,10 +41,26 @@ public class UnsprungMass {
         wheel.setSize(size);
     }
 
+    public int getPressure() {
+        return tire.getPressure();
+    }
+
+    public int getSize() {
+        return wheel.getSize();
+    }
+
     public void setPressure(int pressure) {
         tire.setPressure(pressure);
     }
 
+
+    public void setSuspensionType(String suspensionType) {
+        suspension.setType(suspensionType);
+    }
+
+    public String getSuspensionType() {
+        return suspension.getType();
+    }
 
 //    public UnsprungMass(int wheelNumber) {
 //        WheelComponent wheelComponent = DaggerWheelComponent.builder().build();

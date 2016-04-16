@@ -20,7 +20,12 @@ import dagger.Provides;
 public class WheelModule {
 
     @Provides
-    WheelInt provideWheel(Wheel wheel) {
-        return wheel;
+    Wheel provideWheel(WheelImpl wheelImpl) {
+        return wheelImpl;
     }
+
+//    @Provides
+//    List<Wheel> provideWheel(WheelImpl wheelImpl) {
+//        return wheelImpl;
+//    }
 }
