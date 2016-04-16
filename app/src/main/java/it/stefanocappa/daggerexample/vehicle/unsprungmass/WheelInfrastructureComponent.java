@@ -11,25 +11,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass;
 
-public interface Tire {
+import javax.inject.Singleton;
 
-    int getSize();
+import dagger.Component;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.suspension.SuspensionModule;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire.TireModule;
 
-    void setSize(int size);
-
-    int getPressure();
-
-    void setPressure(int pressure);
-
-    int getRpm();
-
-    void setRpm(int rpm);
-
-    String getType();
-
-    void setType(String type);
-
-
+/**
+ * Created by Ks89 on 14/03/16.
+ */
+@Singleton
+@Component(modules = {TireModule.class, SuspensionModule.class})
+public interface WheelInfrastructureComponent {
+    WheelInfrastructure wheelInfrastructure();
 }

@@ -36,14 +36,20 @@ public class MainActivity extends AppCompatActivity {
 
         Vehicle v = new Vehicle(NUMBER_OF_WHEELS);
 
-        v.getUnsprungMass().setSize(17); //inches
-        v.getUnsprungMass().setSuspensionType("Semi-Active");
-        v.getUnsprungMass().setPressure(35); //PSI
+        v.getUnsprungMass().getWheels().get(0).setSize(17); //inches
+        v.getUnsprungMass().getWheels().get(0).setSuspensionType("Semi-Active");
+        v.getUnsprungMass().getWheels().get(0).setPressure(35); //PSI
+        v.getUnsprungMass().getWheels().get(1).setSize(15); //inches
+        v.getUnsprungMass().getWheels().get(1).setSuspensionType("Passive");
+        v.getUnsprungMass().getWheels().get(1).setPressure(30); //PSI
 //        v.getUnsprungMass().setTireType("Performance-Tire");
 //
-        Log.d(TAG, "size: " + v.getUnsprungMass().getSize());
-        Log.d(TAG, "susp type: " + v.getUnsprungMass().getSuspensionType());
-        Log.d(TAG, "pressure: " + v.getUnsprungMass().getPressure());
+        Log.d(TAG, "size: " + v.getUnsprungMass().getWheels().get(0).getSize());
+        Log.d(TAG, "susp type: " + v.getUnsprungMass().getWheels().get(0).getSuspensionType());
+        Log.d(TAG, "pressure: " + v.getUnsprungMass().getWheels().get(0).getPressure());
+        Log.d(TAG, "size: " + v.getUnsprungMass().getWheels().get(1).getSize());
+        Log.d(TAG, "susp type: " + v.getUnsprungMass().getWheels().get(1).getSuspensionType());
+        Log.d(TAG, "pressure: " + v.getUnsprungMass().getWheels().get(1).getPressure());
 //        Log.d(TAG, "tire type: " + v.getUnsprungMass().getTireType());
 
         //.....SIMULATION.....

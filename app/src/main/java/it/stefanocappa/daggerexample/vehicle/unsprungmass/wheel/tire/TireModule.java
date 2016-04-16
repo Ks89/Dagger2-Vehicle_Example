@@ -11,10 +11,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire;
 
 import dagger.Module;
 import dagger.Provides;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelModule;
 
 @Module(includes = {WheelModule.class})
 public class TireModule {

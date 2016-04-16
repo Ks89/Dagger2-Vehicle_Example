@@ -13,56 +13,30 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle.unsprungmass;
 
-import javax.inject.Inject;
-
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Suspension;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Tire;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UnsprungMass {
 
-    //TODO implements abs and esc!!!!
-    private boolean abs = true;
-    private boolean esc = true;
+    private List<WheelInfrastructure> wheels;
 
-    @Inject
-    Tire tire;
-    @Inject
-    Suspension suspension;
+    public UnsprungMass(int wheelsNum) {
+        WheelInfrastructureComponent wheelInfrastructureComponent = DaggerWheelInfrastructureComponent.builder()
+                .build();
 
-    @Inject
-    Wheel wheel;
+        this.wheels = new ArrayList<>(wheelsNum);
 
-    @Inject
-    public UnsprungMass() {
+        for (int i = 0; i < wheelsNum; i++) {
+            this.wheels.add(wheelInfrastructureComponent.wheelInfrastructure());
+        }
     }
 
-    public void setSize(int size) {
-        wheel.setSize(size);
-    }
-
-    public int getPressure() {
-        return tire.getPressure();
-    }
-
-    public int getSize() {
-        return wheel.getSize();
-    }
-
-    public void setPressure(int pressure) {
-        tire.setPressure(pressure);
+    public List<WheelInfrastructure> getWheels() {
+        return wheels;
     }
 
 
-    public void setSuspensionType(String suspensionType) {
-        suspension.setType(suspensionType);
-    }
-
-    public String getSuspensionType() {
-        return suspension.getType();
-    }
-
-//    public UnsprungMass(int wheelNumber) {
+    //    public UnsprungMass(int wheelNumber) {
 //        WheelComponent wheelComponent = DaggerWheelComponent.builder().build();
 //        for (int i = 0; i < wheelNumber; i++) {
 //            this.wheels.add(wheelComponent.wheel());

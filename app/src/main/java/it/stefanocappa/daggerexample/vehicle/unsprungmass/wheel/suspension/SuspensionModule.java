@@ -11,19 +11,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.suspension;
 
-import javax.inject.Singleton;
+import dagger.Module;
+import dagger.Provides;
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.WheelModule;
 
-import dagger.Component;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.SuspensionModule;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.TireModule;
-
-/**
- * Created by Ks89 on 14/03/16.
- */
-@Singleton
-@Component(modules = {TireModule.class, SuspensionModule.class})
-public interface UnsprungMassComponent {
-    UnsprungMass unsprungMass();
+@Module(includes = {WheelModule.class})
+public class SuspensionModule {
+    @Provides
+    Suspension provideSuspension() {
+        return new SuspensionImpl();
+    }
 }

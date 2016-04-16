@@ -16,9 +16,7 @@ package it.stefanocappa.daggerexample.vehicle;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.DaggerUnsprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMass;
-import it.stefanocappa.daggerexample.vehicle.unsprungmass.UnsprungMassComponent;
 
 public class Vehicle {
     private static final String TAG = Vehicle.class.getSimpleName();
@@ -33,9 +31,8 @@ public class Vehicle {
         this.sprungMass = sprungMassComponent.sprungMass();
 
         //-------------------Unsprung mass-------------------
-        UnsprungMassComponent unsprungMassComponent = DaggerUnsprungMassComponent.builder()
-                .build();
-        this.unsprungMass = unsprungMassComponent.unsprungMass();
+        this.unsprungMass = new UnsprungMass(4);
+
 //        WheelComponent wheelComponent = DaggerWheelComponent.builder()
 //                .build();
 //        this.wheel = wheelComponent.wheel();

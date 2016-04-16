@@ -11,50 +11,37 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass;
 
 import javax.inject.Inject;
 
+import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.Wheel;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.suspension.Suspension;
 import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire.Tire;
 
 /**
  * Created by Ks89 on 30/03/16.
  */
-public class WheelImpl implements Wheel {
+public class WheelInfrastructure {
 
-    private Suspension suspension;
-
-    private Tire tire;
+    //TODO implements abs and esc!!!!
+    private boolean abs = true;
+    private boolean esc = true;
 
     @Inject
-    public WheelImpl(Tire tire, Suspension suspension) {
-        this.tire = tire;
-        this.suspension = suspension;
-    }
+    Tire tire;
+    @Inject
+    Suspension suspension;
 
-    public void setRpm(int rpm) {
-        tire.setRpm(rpm);
-    }
+    @Inject
+    Wheel wheel;
 
-    public void setPressure(int pressure) {
-        tire.setPressure(pressure);
+    @Inject
+    public WheelInfrastructure() {
     }
 
     public void setSize(int size) {
-        tire.setSize(size);
-    }
-
-    public void setTireType(String type) {
-        tire.setType(type);
-    }
-
-    public void setSuspensionType(String type) {
-        suspension.setType(type);
-    }
-
-    public int getRpm() {
-        return tire.getRpm();
+        wheel.setSize(size);
     }
 
     public int getPressure() {
@@ -62,14 +49,21 @@ public class WheelImpl implements Wheel {
     }
 
     public int getSize() {
-        return tire.getSize();
+        return wheel.getSize();
     }
 
-    public String getTireType() {
-        return tire.getType();
+    public void setPressure(int pressure) {
+        tire.setPressure(pressure);
+    }
+
+
+    public void setSuspensionType(String suspensionType) {
+        suspension.setType(suspensionType);
     }
 
     public String getSuspensionType() {
         return suspension.getType();
     }
+
+
 }

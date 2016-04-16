@@ -11,7 +11,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire;
 
 /**
  * Created by Ks89 on 24/03/16.

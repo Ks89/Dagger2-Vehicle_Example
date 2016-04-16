@@ -11,15 +11,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire;
 
-import dagger.Module;
-import dagger.Provides;
+public interface Tire {
 
-@Module(includes = {WheelModule.class})
-public class SuspensionModule {
-    @Provides
-    Suspension provideSuspension() {
-        return new SuspensionImpl();
-    }
+    int getSize();
+
+    void setSize(int size);
+
+    int getPressure();
+
+    void setPressure(int pressure);
+
+    int getRpm();
+
+    void setRpm(int rpm);
+
+    String getType();
+
+    void setType(String type);
+
+
 }

@@ -23,9 +23,4 @@ public class WheelModule {
     Wheel provideWheel(WheelImpl wheelImpl) {
         return wheelImpl;
     }
-
-//    @Provides
-//    List<Wheel> provideWheel(WheelImpl wheelImpl) {
-//        return wheelImpl;
-//    }
 }

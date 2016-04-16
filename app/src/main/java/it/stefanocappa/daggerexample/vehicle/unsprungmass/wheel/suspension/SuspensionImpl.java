@@ -11,10 +11,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
  */
 
-package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
+package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.suspension;
 
-public interface Suspension {
-    void setType(String type);
+/**
+ * Created by Ks89 on 24/03/16.
+ */
+public class SuspensionImpl implements Suspension {
 
-    String getType();
+    private String type;
+
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public void setType(String type) {
+        this.type = type;
+    }
 }
