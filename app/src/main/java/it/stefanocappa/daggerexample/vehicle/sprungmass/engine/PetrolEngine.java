@@ -29,14 +29,16 @@ public class PetrolEngine extends Motor {
     }
 
     @Override
-    public void accelerate(int value) {
+    public int accelerate(int value) {
         if (tank.getCurrentLevel() >= value) {
             Log.d(TAG, "Engine accelerating to " + value + " with fuel: " + tank.getCurrentLevel());
             this.rpm = value;
             tank.setCurrentLevel(tank.getCurrentLevel() - value);
             Log.d(TAG, "Engine consumed " + value + " of fuel to be able to accelerate");
+            return this.rpm;
         } else {
             Log.e(TAG, "Not enough fuel. Current is: " + tank.getCurrentLevel() + ", requested is " + value);
+            return -1;
         }
     }
 

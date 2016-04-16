@@ -56,16 +56,19 @@ public class SprungMass {
         electricTank.get().refill(fuelToAdd);
     }
 
-    public void acceleratePetrol(int rpmRequested) {
-        petrolEngine.get().accelerate(rpmRequested);
+    public int acceleratePetrol(int rpmRequested) {
+        int result = petrolEngine.get().accelerate(rpmRequested);
+        return result;
     }
 
-    public void accelerateGpl(int rpmRequested) {
-        gplEngine.get().accelerate(rpmRequested);
+    public int accelerateGpl(int rpmRequested) {
+        int result = gplEngine.get().accelerate(rpmRequested);
+        return result;
     }
 
-    public void accelerateElectric(int rpmRequested) {
-        electricEngine.get().accelerate(rpmRequested);
+    public int accelerateElectric(int rpmRequested) {
+        int result = electricEngine.get().accelerate(rpmRequested);
+        return result;
     }
 
     public void brakePetrol() {

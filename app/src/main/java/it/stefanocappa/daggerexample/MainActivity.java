@@ -36,21 +36,17 @@ public class MainActivity extends AppCompatActivity {
 
         Vehicle v = new Vehicle(NUMBER_OF_WHEELS);
 
-        v.getUnsprungMass().getWheels().get(0).setSize(17); //inches
-        v.getUnsprungMass().getWheels().get(0).setSuspensionType("Semi-Active");
-        v.getUnsprungMass().getWheels().get(0).setPressure(35); //PSI
-        v.getUnsprungMass().getWheels().get(1).setSize(15); //inches
-        v.getUnsprungMass().getWheels().get(1).setSuspensionType("Passive");
-        v.getUnsprungMass().getWheels().get(1).setPressure(30); //PSI
-//        v.getUnsprungMass().setTireType("Performance-Tire");
-//
-        Log.d(TAG, "size: " + v.getUnsprungMass().getWheels().get(0).getSize());
-        Log.d(TAG, "susp type: " + v.getUnsprungMass().getWheels().get(0).getSuspensionType());
-        Log.d(TAG, "pressure: " + v.getUnsprungMass().getWheels().get(0).getPressure());
-        Log.d(TAG, "size: " + v.getUnsprungMass().getWheels().get(1).getSize());
-        Log.d(TAG, "susp type: " + v.getUnsprungMass().getWheels().get(1).getSuspensionType());
-        Log.d(TAG, "pressure: " + v.getUnsprungMass().getWheels().get(1).getPressure());
-//        Log.d(TAG, "tire type: " + v.getUnsprungMass().getTireType());
+        //.....INITIAL SETUP.....
+        v.setSize(17); //inches
+        v.setSuspensionType("Semi-Active");
+        v.setPressure(35); //PSI
+        v.setTireType("Winter");
+
+        Log.d(TAG, "Tire's size: " + v.getSize());
+        Log.d(TAG, "Suspension type: " + v.getSuspensionType());
+        Log.d(TAG, "Tire's pressure: " + v.getAveragePressure());
+        Log.d(TAG, "Tire's type: " + v.getAveragePressure());
+
 
         //.....SIMULATION.....
         //ATTENTION: to create a simple simulation I made this assumption:
@@ -114,27 +110,5 @@ public class MainActivity extends AppCompatActivity {
         v.refillElectric(100); //20+100=120 //ERROR you exceeded the capacity
 
         v.brakeElectric();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

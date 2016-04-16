@@ -28,7 +28,7 @@ public abstract class Motor implements Engine {
         return this.rpm;
     }
 
-    public abstract void accelerate(int rpm);
+    public abstract int accelerate(int rpm);
 
     public abstract void brake();
 }

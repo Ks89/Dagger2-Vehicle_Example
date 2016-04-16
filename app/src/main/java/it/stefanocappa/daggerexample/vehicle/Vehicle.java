@@ -13,6 +13,8 @@ limitations under the License.
 
 package it.stefanocappa.daggerexample.vehicle;
 
+import android.util.Log;
+
 import it.stefanocappa.daggerexample.vehicle.sprungmass.DaggerSprungMassComponent;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMass;
 import it.stefanocappa.daggerexample.vehicle.sprungmass.SprungMassComponent;
@@ -25,22 +27,12 @@ public class Vehicle {
     private UnsprungMass unsprungMass;
 
     public Vehicle(int wheelsNum) {
-
         //-------------------Sprung mass--------------------
         SprungMassComponent sprungMassComponent = DaggerSprungMassComponent.builder().build();
         this.sprungMass = sprungMassComponent.sprungMass();
 
         //-------------------Unsprung mass-------------------
-        this.unsprungMass = new UnsprungMass(4);
-
-//        WheelComponent wheelComponent = DaggerWheelComponent.builder()
-//                .build();
-//        this.wheel = wheelComponent.wheel();
-
-    }
-
-    public UnsprungMass getUnsprungMass() {
-        return this.unsprungMass;
+        this.unsprungMass = new UnsprungMass(wheelsNum);
     }
 
     public void refillGpl(int fuelToAdd) {
@@ -56,26 +48,99 @@ public class Vehicle {
     }
 
     public void acceleratePetrol(int rpmRequested) {
-        this.sprungMass.acceleratePetrol(rpmRequested);
+        int result = this.sprungMass.acceleratePetrol(rpmRequested);
+        if (result != -1) {
+            this.unsprungMass.setRpm(rpmRequested);
+            Log.d(TAG, "Wheel speed: " + rpmRequested);
+        } else {
+            Log.e(TAG, "Wheel speed 0");
+        }
     }
 
     public void accelerateGpl(int rpmRequested) {
-        this.sprungMass.accelerateGpl(rpmRequested);
+        int result = this.sprungMass.accelerateGpl(rpmRequested);
+        if (result != -1) {
+            this.unsprungMass.setRpm(rpmRequested);
+            Log.d(TAG, "Wheel speed: " + rpmRequested);
+        } else {
+            Log.e(TAG, "Wheel speed 0");
+        }
     }
 
     public void accelerateElectric(int rpmRequested) {
-        this.sprungMass.accelerateElectric(rpmRequested);
+        int result = this.sprungMass.accelerateElectric(rpmRequested);
+        if (result != -1) {
+            this.unsprungMass.setRpm(rpmRequested);
+            Log.d(TAG, "Wheel speed: " + rpmRequested);
+        } else {
+            Log.e(TAG, "Wheel speed 0");
+        }
     }
 
     public void brakePetrol() {
         this.sprungMass.brakePetrol();
+        this.unsprungMass.setRpm(0);
+        Log.d(TAG, "Vehicle stopped");
     }
 
     public void brakeGpl() {
         this.sprungMass.brakeGpl();
+        this.unsprungMass.setRpm(0);
+        Log.d(TAG, "Vehicle stopped");
     }
 
     public void brakeElectric() {
         this.sprungMass.brakeElectric();
+        this.unsprungMass.setRpm(0);
+        Log.d(TAG, "Vehicle stopped");
     }
+
+    public void setRpm(int rpm) {
+        this.unsprungMass.setRpm(rpm);
+    }
+
+    public void setPressure(int pressure) {
+        this.unsprungMass.setPressure(pressure);
+    }
+
+    public void setSize(int size) {
+        this.unsprungMass.setSize(size);
+    }
+
+    public void setTireType(String type) {
+        this.unsprungMass.setTireType(type);
+    }
+
+    public void setSuspensionType(String type) {
+        this.unsprungMass.setSuspensionType(type);
+    }
+
+    public int getRpm() {
+        return this.unsprungMass.getAveragePressure();
+    }
+
+    public int getRpmSingleTire(int tireNumber) {
+        return this.unsprungMass.getRpmSingleTire(tireNumber);
+    }
+
+    public int getAveragePressure() {
+        return this.unsprungMass.getAveragePressure();
+    }
+
+    public int getPressureSingleTire(int tireNumber) {
+        return this.unsprungMass.getPressureSingleTire(tireNumber);
+    }
+
+    public int getSize() {
+        return this.unsprungMass.getSize();
+    }
+
+    public String getTireType() {
+        return this.unsprungMass.getTireType();
+    }
+
+    public String getSuspensionType() {
+        return this.unsprungMass.getSuspensionType();
+    }
+
 }

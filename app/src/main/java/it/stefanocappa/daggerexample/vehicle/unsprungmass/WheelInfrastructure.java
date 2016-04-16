@@ -24,7 +24,7 @@ import it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel.tire.Tire;
  */
 public class WheelInfrastructure {
 
-    //TODO implements abs and esc!!!!
+    //true by default
     private boolean abs = true;
     private boolean esc = true;
 
@@ -40,8 +40,28 @@ public class WheelInfrastructure {
     public WheelInfrastructure() {
     }
 
+    public void setRpm(int rpm) {
+        tire.setRpm(rpm);
+    }
+
+    public void setPressure(int pressure) {
+        tire.setPressure(pressure);
+    }
+
     public void setSize(int size) {
-        wheel.setSize(size);
+        tire.setSize(size);
+    }
+
+    public void setTireType(String type) {
+        tire.setType(type);
+    }
+
+    public void setSuspensionType(String type) {
+        suspension.setType(type);
+    }
+
+    public int getRpm() {
+        return tire.getRpm();
     }
 
     public int getPressure() {
@@ -49,21 +69,30 @@ public class WheelInfrastructure {
     }
 
     public int getSize() {
-        return wheel.getSize();
+        return tire.getSize();
     }
 
-    public void setPressure(int pressure) {
-        tire.setPressure(pressure);
-    }
-
-
-    public void setSuspensionType(String suspensionType) {
-        suspension.setType(suspensionType);
+    public String getTireType() {
+        return tire.getType();
     }
 
     public String getSuspensionType() {
         return suspension.getType();
     }
 
+    public boolean isAbs() {
+        return abs;
+    }
 
+    public void setAbs(boolean abs) {
+        this.abs = abs;
+    }
+
+    public boolean isEsc() {
+        return esc;
+    }
+
+    public void setEsc(boolean esc) {
+        this.esc = esc;
+    }
 }
