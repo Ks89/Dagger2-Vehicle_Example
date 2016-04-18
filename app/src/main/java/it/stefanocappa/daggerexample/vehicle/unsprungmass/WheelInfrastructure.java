@@ -28,16 +28,15 @@ public class WheelInfrastructure {
     private boolean abs = true;
     private boolean esc = true;
 
-    @Inject
-    Tire tire;
-    @Inject
-    Suspension suspension;
+    private Tire tire;
+    private Suspension suspension;
+    private Wheel wheel;
 
     @Inject
-    Wheel wheel;
-
-    @Inject
-    public WheelInfrastructure() {
+    public WheelInfrastructure(Tire tire, Suspension suspension, Wheel wheel) {
+        this.tire = tire;
+        this.suspension = suspension;
+        this.wheel = wheel;
     }
 
     public void setRpm(int rpm) {

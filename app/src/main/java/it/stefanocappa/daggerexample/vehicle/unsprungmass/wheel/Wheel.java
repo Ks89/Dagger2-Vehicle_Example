@@ -17,23 +17,23 @@ package it.stefanocappa.daggerexample.vehicle.unsprungmass.wheel;
  */
 public interface Wheel {
 
-    public void setRpm(int rpm);
+    void setRpm(int rpm);
 
-    public void setPressure(int pressure);
+    void setPressure(int pressure);
 
-    public void setSize(int size);
+    void setSize(int size);
 
-    public void setTireType(String type);
+    void setTireType(String type);
 
-    public void setSuspensionType(String type);
+    void setSuspensionType(String type);
 
-    public int getRpm();
+    int getRpm();
 
-    public int getPressure();
+    int getPressure();
 
-    public int getSize();
+    int getSize();
 
-    public String getTireType();
+    String getTireType();
 
-    public String getSuspensionType();
+    String getSuspensionType();
 }
